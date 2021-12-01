@@ -27,23 +27,6 @@
 
 // 输入：s = "{[]}"
 // 输出：true
-function isValid(s: string): boolean {
-  if (s.length % 2 === 1) {
-    return false
-  }
-  const arr = []
-  for (let i = 0; i < s.length; i++) {
-    const c = s[i]
-    if (c === '(' || c === '[' || c === '{') {
-      arr.push(c)
-    } else {
-      const t = arr[arr.length - 1]
-      if (c === '}' && t === '{' || c === ')' && t === '(' || c === ']' && t === '[') {
-        arr.pop()
-      } else {
-        return false
-      }
-    }
-  }
-  return arr.length === 0
+function isValid2(s: string): boolean {
+
 };

@@ -11,7 +11,7 @@
 // 输出：[9,4]
 
 // 使用map 字典来解决这个问题
-function intersection(nums1: number[], nums2: number[]): number[] {
+function intersection2 (nums1: number[], nums2: number[]): number[] {
   let map = new Map()
   nums1.forEach(item => map.set(item, true))
   let arr = []
