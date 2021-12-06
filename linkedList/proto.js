@@ -1,11 +1,11 @@
 // 原型链相关知识
 let object = {}
-let fun = () => {}
+let fun = () => { }
 let arr = []
 
 object.__proto__ === Object.prototype // true
 object.__proto__.__proto__ === null // true
-fun.__proto__  === Function.prototype // true
+fun.__proto__ === Function.prototype // true
 fun.__proto__.__proto__ === Object.prototype // true
 arr.__proto__ === Array.prototype // true
 arr.__proto__.__proto__ === Object.prototype // true
@@ -26,3 +26,21 @@ fun instanceof Function // true
 Function.prototype.x = 'x'
 
 fun.x === 'x' // true
+
+
+
+// 面试题 笔试
+
+// 手写实现instanceof
+
+const instanceOf = (A, B) => {
+  let p = A
+  while (p) {
+    if (p.__proto__ !== B.prototype) {
+      p = p.__proto__
+    } else {
+      return true
+    }
+  }
+  return false
+}
