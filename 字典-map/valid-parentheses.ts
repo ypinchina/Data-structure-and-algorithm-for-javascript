@@ -28,5 +28,26 @@
 // 输入：s = "{[]}"
 // 输出：true
 function isValid2(s: string): boolean {
-
+  if (s.length % 2 !== 0) {
+    return false
+  }
+  const map = new Map()
+  const stack = []
+  map.set('{', '}')
+  map.set('[', ']')
+  map.set('(', ')')
+  for (let i = 0; i < s.length; i++) {
+    const head = s[i]
+    if (head === '{' || head === '[' || head === '(') {
+      stack.push(head)
+    } else {
+      const tail = stack[stack.length - 1]
+      if (map.get(tail) === head) {
+        stack.pop()
+      } else {
+        return false
+      }
+    }
+  }
+  return stack.length === 0
 };
