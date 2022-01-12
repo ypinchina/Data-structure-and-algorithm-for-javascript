@@ -34,3 +34,23 @@ var levelOrder = function (root) {
   }
   return res
 };
+// 时间复杂度和空间复杂度都是O(n), n为树的节点数 
+
+// 方法二 优化算法的时间和空间复杂度
+
+var levelOrder = function (root) {
+  if (!root) return []
+  const queue = [root]
+  const res = []
+  while (queue.length) {
+    let len = queue.length
+    res.push([])
+    while (len--) {
+      const node = queue.shift()
+      res[res.length - 1].push(node.val)
+      if (node.left) queue.push(node.left)
+      if (node.right) queue.push(node.right)
+    }
+  }
+  // return res
+};
