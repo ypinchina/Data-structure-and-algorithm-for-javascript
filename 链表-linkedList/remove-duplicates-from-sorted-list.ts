@@ -19,16 +19,16 @@
  * }
  */
 
- function deleteDuplicates(head: ListNode | null): ListNode | null {
-  let p = head
-  while (p && p.next) {
-      if (p.val === p.next.val) {
-          p.next = p.next.next
-      } else {
-          p = p.next
-      }
-  }
-  return head
+function deleteDuplicates(head: ListNode | null): ListNode | null {
+    let p = head
+    while (p && p.next) {
+        if (p.val === p.next.val) {
+            p.next = p.next.next
+        } else {
+            p = p.next
+        }
+    }
+    return head
 };
 
 // 时间复杂度为O(n)，空间复杂度O(1)
